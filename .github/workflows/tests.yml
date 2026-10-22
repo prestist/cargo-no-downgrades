@@ -1,0 +1,14 @@
+name: Tests
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Test lockfile comparisons and SemVer ordering
+        run: python3 -B -m unittest -v
